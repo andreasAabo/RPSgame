@@ -17,7 +17,7 @@ function playRound(playerSelection, computerSelection){
     //computerSelection = computerPlay(); (Can be used if you want and remove the second parameter, if you always want to use the computerPlay() function.)
     let cpu = computerSelection;
     let player = playerSelection;
-
+    //Alternatively i could group the winning conditions and the losing conditions with OR.
     if (player === cpu){
         return `Both chose ${cpu}, its a draw!`
     }

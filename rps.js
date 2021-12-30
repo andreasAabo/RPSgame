@@ -36,7 +36,6 @@ function game(){
 
     let cpuscore =0;
     let playerscore =0;
-
     for (let i=1;i<6;i++){
         const playerSelection = prompt("Rock, Paper or Scissors?");
         const computerSelection = computerPlay();
@@ -56,8 +55,7 @@ function game(){
                 i--;
                 continue;
             }
-        }
-        
+        } 
     }
     if (playerscore > cpuscore){
         console.log(`\nYou won with ${playerscore} points versus ${cpuscore} points after 5 rounds!`)

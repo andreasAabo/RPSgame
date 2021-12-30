@@ -17,27 +17,18 @@ function playRound(playerSelection, computerSelection){
     //computerSelection = computerPlay(); (Can be used if you want and remove the second parameter, if you always want to use the computerPlay() function.)
     let cpu = computerSelection;
     let player = playerSelection;
-    //Alternatively i could group the winning conditions and the losing conditions with OR.
     if (player === cpu){
         return `Both chose ${cpu}, its a draw!`
     }
-    else if (player ==="Rock" && cpu === "Paper"){
-        return "You Lose! Paper beats Rock"
+    else if (player ==="Rock" && cpu === "Paper" ||
+             player ==="Paper" && cpu ==="Scissors" ||
+             player ==="Scissors" && cpu =="Rock"){
+        return `You Lose! ${cpu} beats ${player} `
     }
-    else if (player ==="Rock" && cpu ==="Scissors"){
-        return "You Win! Rock beats Scissors"
-    }
-    else if(player ==="Paper" && cpu ==="Scissors"){
-        return "You Lose! Scissors beats Paper"
-    }
-    else if (player ==="Paper" && cpu ==="Rock"){
-        return "You Win! Paper beats Rock"
-    }
-    else if (player ==="Scissors" && cpu =="Rock"){
-        return "You Lose! Rock beats Scissors"
-    }
-    else if (player ==="Scissors" && cpu ==="Paper"){
-        return "You Win! Scissors beats Paper"
+    else if (player ==="Rock" && cpu ==="Scissors" ||
+             player ==="Paper" && cpu ==="Rock" ||
+             player ==="Scissors" && cpu ==="Paper"){
+        return `You Win! ${player} beats ${cpu}`
     }
 }
 

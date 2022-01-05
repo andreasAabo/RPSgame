@@ -32,12 +32,21 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
+
+
+
+
+
+
+
+
+
+/**function game(){
 
     let cpuscore =0;
     let playerscore =0;
     for (let i=1;i<6;i++){
-        const playerSelection = prompt("Rock, Paper or Scissors?");
+        //const playerSelection = prompt("Rock, Paper or Scissors?");
         const computerSelection = computerPlay();
         console.log(`\nRound: ${i}\n`)
         console.log(playRound(playerSelection,computerSelection));
@@ -68,4 +77,4 @@ function game(){
     }
 }
 
-game()
+game()*/

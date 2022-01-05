@@ -1,0 +1,23 @@
+html{
+    background: url(background2.jpg);
+    background-size: cover;
+}
+
+body {
+    flex: auto;
+    display: flex;
+    align-items: center;
+}
+
+#buttons{
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+.btn{
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

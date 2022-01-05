@@ -13,9 +13,10 @@ body {
     display: flex;
     flex: auto;
     flex-direction: column;
+    padding: 20px;
 }
 
-.btn{
+button{
     flex: auto;
     display: flex;
     justify-content: center;

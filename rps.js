@@ -11,37 +11,38 @@ function computerPlay(){
     }
 }
 
-function playRound(playerSelection, computerSelection){
-
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-    //computerSelection = computerPlay(); (Can be used if you want and remove the second parameter, if you always want to use the computerPlay() function.)
-    let cpu = computerSelection;
-    let player = playerSelection;
+function playRound(player){
+    console.log(player);
+    let cpu = computerPlay();
+    console.log(cpu);
     if (player === cpu){
-        return `Both chose ${cpu}, its a draw!`
+        console.log(`Both chose ${cpu}, its a draw!`);
     }
     else if (player ==="Rock" && cpu === "Paper" ||
              player ==="Paper" && cpu ==="Scissors" ||
              player ==="Scissors" && cpu =="Rock"){
-        return `You Lose! ${cpu} beats ${player} `
+        console.log(`You Lose! ${cpu} beats ${player}`);
     }
     else if (player ==="Rock" && cpu ==="Scissors" ||
              player ==="Paper" && cpu ==="Rock" ||
              player ==="Scissors" && cpu ==="Paper"){
-        return `You Win! ${player} beats ${cpu}`
+        console.log(`You Win! ${player} beats ${cpu}`);
     }
 }
 
 
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => playRound('Rock'));
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => playRound('Paper'));
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => playRound('Scissors'));
 
 
-
-
-
-
-
-
-/**function game(){
+/**
+function game(){
 
     let cpuscore =0;
     let playerscore =0;
@@ -77,4 +78,6 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-game()*/
+game()
+
+*/

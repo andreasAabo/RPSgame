@@ -14,7 +14,7 @@ function computerPlay(){
 function playRound(player){
     let cpu = computerPlay();
     if (player === cpu){
-        whowon.textContent = `Both chose ${cpu}, its a draw!`;
+        whowon.textContent = `Both chose ${cpu}, its a draw!`; //whowon = .output
     }
     else if (player ==="Rock" && cpu === "Paper" ||
              player ==="Paper" && cpu ==="Scissors" ||

@@ -7,8 +7,12 @@ body {
     flex: auto;
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
+h1{
+    color: white;
+}
 #buttons{
     display: flex;
     flex: auto;
@@ -18,7 +22,20 @@ body {
 
 button{
     flex: auto;
+    height: 50px;
+    width: 100px;
     display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    align-items: center;
     justify-content: center;
     margin: 20px;
+}
+
+.output{
+    color: white;
+}
+
+p{
+    color: white;
 }

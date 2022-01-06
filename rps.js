@@ -12,21 +12,26 @@ function computerPlay(){
 }
 
 function playRound(player){
-    console.log(player);
+    if (hscore >= 5 || ascore >= 5){
+        console.log("testing"); //referer til en funksjon som tar seg av vinneren og return.
+    }
     let cpu = computerPlay();
-    console.log(cpu);
     if (player === cpu){
-        console.log(`Both chose ${cpu}, its a draw!`);
+        whowon.textContent = `Both chose ${cpu}, its a draw!`;
     }
     else if (player ==="Rock" && cpu === "Paper" ||
              player ==="Paper" && cpu ==="Scissors" ||
              player ==="Scissors" && cpu =="Rock"){
-        console.log(`You Lose! ${cpu} beats ${player}`);
+        whowon.textContent =`You Lose! ${cpu} beats ${player}`;
+        ascore++;
+        alien.textContent = ascore;
     }
     else if (player ==="Rock" && cpu ==="Scissors" ||
              player ==="Paper" && cpu ==="Rock" ||
              player ==="Scissors" && cpu ==="Paper"){
-        console.log(`You Win! ${player} beats ${cpu}`);
+        whowon.textContent = `You Win! ${player} beats ${cpu}`;
+        hscore++;
+        human.textContent = hscore;
     }
 }
 
@@ -39,6 +44,27 @@ paper.addEventListener('click', () => playRound('Paper'));
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () => playRound('Scissors'));
+
+
+let hscore = 0;
+let ascore = 0;
+const whowon = document.querySelector('.output');
+const human = document.querySelector('#human');
+const alien = document.querySelector('#alien');
+
+//TODO:
+//LAGE AT RESULTAT BLIR SKREVET UT TIL SIDEN OG IKKE TIL KONSOLLET.
+//SAMT LAGE LOGIKKEN SOM SAMLER PÅ POENGENE!
+
+//HVA HAR DU LÆRT I DAG?
+//
+//ALLTID HA DEFER PÅ JS_SKRIPTET I HTML!!!!!
+//ARROWFUNCTIONS BRUKER KUN PARAMETERE FØR PILEN, ETTERPÅ KAN DU GJERNE KALLE PÅ
+//FUNKSJONER MED ARGUMENTER!
+//
+//CALLBACKS ER BARE FUNKSJONER DU IKKE KJØRER FØR DU HAR GJORT NOE ANNET.
+//DET ER LITT VANSKELIG DET HER! KJØØØØRRAAAAA PÅÅ!
+
 
 
 /**

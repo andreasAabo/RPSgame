@@ -12,9 +12,7 @@ function computerPlay(){
 }
 
 function playRound(player){
-    if (hscore >= 5 || ascore >= 5){
-        console.log("testing"); //referer til en funksjon som tar seg av vinneren og return.
-    }
+
     let cpu = computerPlay();
     if (player === cpu){
         whowon.textContent = `Both chose ${cpu}, its a draw!`;
@@ -22,7 +20,7 @@ function playRound(player){
     else if (player ==="Rock" && cpu === "Paper" ||
              player ==="Paper" && cpu ==="Scissors" ||
              player ==="Scissors" && cpu =="Rock"){
-        whowon.textContent =`You Lose! ${cpu} beats ${player}`;
+        whowon.textContent =`You Lose! ${cpu} beats ${player}`; 
         ascore++;
         alien.textContent = ascore;
     }
@@ -32,6 +30,27 @@ function playRound(player){
         whowon.textContent = `You Win! ${player} beats ${cpu}`;
         hscore++;
         human.textContent = hscore;
+    }
+    if (hscore === 5 || ascore === 5){
+        if (hscore ===5){
+            return rpsres('human');
+        }
+        else if (ascore ===5){
+            return rpsres('alien');
+        }
+    }
+}
+
+function rpsres(winner){
+    const test = document.getElementById('html');
+    if (winner ==='human'){
+        console.log('Humans have won the war!')
+        test.style.backgroundImage = "url('humanwins.jpg')";
+        //also ask if you want to play again.(new function for that?)
+    }
+    else if(winner ==='alien'){
+        console.log('The aliens have won! Retreat!');
+        test.style.backgroundImage = "url('alienwins.jpg')";
     }
 }
 

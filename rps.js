@@ -12,7 +12,6 @@ function computerPlay(){
 }
 
 function playRound(player){
-    const buttons = document.querySelector('#buttons');
     let cpu = computerPlay();
     if (player === cpu){
         whowon.textContent = `Both chose ${cpu}, its a draw!`;
@@ -43,25 +42,26 @@ function playRound(player){
 }
 
 function rpsres(winner){
-    const test = document.getElementById('html');
+    body.removeChild(intro);
+    const winOrLose = document.createElement('p');
+    winOrLose.classList.add('winorlose');
     if (winner ==='human'){
-        console.log('Humans have won the war!')
-        test.style.backgroundImage = "url('humanwins.jpg')";
-        const colorchange =document.querySelectorAll('h1, p, .output');
+        winOrLose.textContent = 'Humans have won the war!';
+        body.insertBefore(winOrLose, buttons);
+        pic.style.backgroundImage = "url('humanwins.jpg')";
+        const colorchange =document.querySelectorAll('h1, p, #intro');
         colorchange.forEach(node => node.style.color = "black");
         playAgain();
     }
     else if(winner ==='alien'){
-        console.log('The aliens have won! Retreat!');
-        test.style.backgroundImage = "url('alienwins.jpg')";
+        winOrLose.textContent = 'The aliens have won! Run for the hills!';
+        body.insertBefore(winOrLose, buttons);
+        pic.style.backgroundImage = "url('alienwins.jpg')";
         playAgain();
     }
 }
 
 function playAgain(){
-    const restart = document.querySelector('#restart');
-    const again =document.createElement('button');
-    const exit = document.createElement('button');
     again.textContent ='Play again?';
     exit.textContent ='Exit';
     restart.appendChild(again);
@@ -70,13 +70,20 @@ function playAgain(){
     exit.addEventListener('click', () => window.close());
 }
 
+const buttons = document.querySelector('#buttons');
+
+const pic = document.getElementById('html');
+const body = document.querySelector('#body');
+const intro = document.querySelector('#intro');
+
+const restart = document.querySelector('#restart');
+const again =document.createElement('button');
+const exit = document.createElement('button');
 
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => playRound('Rock'));
-
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', () => playRound('Paper'));
-
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () => playRound('Scissors'));
 

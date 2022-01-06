@@ -1,18 +1,23 @@
 html{
-    background: url(background2.jpg);
-    background-size: 100%;
+    background: url(background2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
+    margin-top: 100px;
     flex: auto;
     display: flex;
     align-items: center;
+    text-align: center;
     flex-direction: column;
 }
 
 h1{
+    font-size: 25px;
     color: white;
 }
+
 #buttons{
     display: flex;
     flex: auto;
@@ -30,10 +35,27 @@ button{
     align-items: center;
     justify-content: center;
     margin: 20px;
+    background-color: rgb(83, 100, 114, 0.7);
+    cursor: pointer;
+    border-style: ridge;
+    border-color: white;
+    border-radius: 15px;
+}
+
+button:hover{
+    background-color: aliceblue;
+}
+button:active{
+    transform: translateY(4px);
 }
 
 .output{
-    color: white;
+    flex: auto;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    color: rgb(228, 176, 130);
 }
 
 p{
@@ -42,4 +64,15 @@ p{
 
 #restart{
     display: flex;
+}
+
+#alien, #human, .bottomtext{
+    font-size: larger;
+    margin: 10px;
+}
+
+.winorlose{
+    color: brown;
+    font-size: 30px;
+    font-weight: 700;
 }

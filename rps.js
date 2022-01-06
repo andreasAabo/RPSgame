@@ -12,7 +12,7 @@ function computerPlay(){
 }
 
 function playRound(player){
-
+    const buttons = document.querySelector('#buttons');
     let cpu = computerPlay();
     if (player === cpu){
         whowon.textContent = `Both chose ${cpu}, its a draw!`;
@@ -32,6 +32,7 @@ function playRound(player){
         human.textContent = hscore;
     }
     if (hscore === 5 || ascore === 5){
+        buttons.style = "pointer-events: none"; //disables the RPS buttons.
         if (hscore ===5){
             return rpsres('human');
         }
@@ -46,12 +47,27 @@ function rpsres(winner){
     if (winner ==='human'){
         console.log('Humans have won the war!')
         test.style.backgroundImage = "url('humanwins.jpg')";
-        //also ask if you want to play again.(new function for that?)
+        const colorchange =document.querySelectorAll('h1, p, .output');
+        colorchange.forEach(node => node.style.color = "black");
+        playAgain();
     }
     else if(winner ==='alien'){
         console.log('The aliens have won! Retreat!');
         test.style.backgroundImage = "url('alienwins.jpg')";
+        playAgain();
     }
+}
+
+function playAgain(){
+    const restart = document.querySelector('#restart');
+    const again =document.createElement('button');
+    const exit = document.createElement('button');
+    again.textContent ='Play again?';
+    exit.textContent ='Exit';
+    restart.appendChild(again);
+    restart.appendChild(exit);
+    again.addEventListener('click', () => location.reload());
+    exit.addEventListener('click', () => window.close());
 }
 
 
@@ -71,9 +87,7 @@ const whowon = document.querySelector('.output');
 const human = document.querySelector('#human');
 const alien = document.querySelector('#alien');
 
-//TODO:
-//LAGE AT RESULTAT BLIR SKREVET UT TIL SIDEN OG IKKE TIL KONSOLLET.
-//SAMT LAGE LOGIKKEN SOM SAMLER PÅ POENGENE!
+
 
 //HVA HAR DU LÆRT I DAG?
 //
@@ -83,46 +97,3 @@ const alien = document.querySelector('#alien');
 //
 //CALLBACKS ER BARE FUNKSJONER DU IKKE KJØRER FØR DU HAR GJORT NOE ANNET.
 //DET ER LITT VANSKELIG DET HER! KJØØØØRRAAAAA PÅÅ!
-
-
-
-/**
-function game(){
-
-    let cpuscore =0;
-    let playerscore =0;
-    for (let i=1;i<6;i++){
-        //const playerSelection = prompt("Rock, Paper or Scissors?");
-        const computerSelection = computerPlay();
-        console.log(`\nRound: ${i}\n`)
-        console.log(playRound(playerSelection,computerSelection));
-        try{
-            if (playRound(playerSelection,computerSelection)[4] === "W"){
-                playerscore++;
-            }
-            else if (playRound(playerSelection,computerSelection)[4] === "L"){
-                cpuscore++;
-            }
-        }
-        catch(e){
-            if (e.name.toString() == "TypeError"){
-                alert("Wrong input, try again!")
-                i--;
-                continue;
-            }
-        } 
-    }
-    if (playerscore > cpuscore){
-        console.log(`\nYou won with ${playerscore} points versus ${cpuscore} points after 5 rounds!`)
-    }
-    else if (playerscore < cpuscore){
-        console.log(`\nYou lost with ${playerscore} points versus ${cpuscore} points after 5 rounds!`)
-    }
-    else{
-        console.log("\nIt's a draw after 5 rounds!")
-    }
-}
-
-game()
-
-*/

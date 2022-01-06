@@ -39,3 +39,7 @@ button{
 p{
     color: white;
 }
+
+#restart{
+    display: flex;
+}

@@ -93,14 +93,3 @@ let ascore = 0;
 const whowon = document.querySelector('.output');
 const human = document.querySelector('#human');
 const alien = document.querySelector('#alien');
-
-
-
-//HVA HAR DU LÆRT I DAG?
-//
-//ALLTID HA DEFER PÅ JS_SKRIPTET I HTML!!!!!
-//ARROWFUNCTIONS BRUKER KUN PARAMETERE FØR PILEN, ETTERPÅ KAN DU GJERNE KALLE PÅ
-//FUNKSJONER MED ARGUMENTER!
-//
-//CALLBACKS ER BARE FUNKSJONER DU IKKE KJØRER FØR DU HAR GJORT NOE ANNET.
-//DET ER LITT VANSKELIG DET HER! KJØØØØRRAAAAA PÅÅ!
